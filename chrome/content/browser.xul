@@ -1,26 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE overlay SYSTEM "chrome://quickdownload/locale/translations.dtd">
 <overlay id="quickdownloadOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- Javascript file we will hook our new UI elements to -->
+    <script src="quickdownload.js"/>
+
     <!-- Add right-click menu entry for quickly downloading files -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadFileMenuItem" 
-            label="&quickDownloadFileLabel;"
+            label="&quickownloadFileLabel;"
             key="quickdownloadFileKey"
-            oncommand=" TODO "/>
+            oncommand="Quickdownload.downloadFile()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadImageMenuItem"
-            label="&quickDownloadImageLabel;" 
+            label="&quickdownloadImageLabel;" 
             key="quickDownloadImageKey"
-            oncommand=" TODO "/>
+            oncommand="Quickdownload.downloadImage()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading background images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadBackgroundImageMenuItem" 
-            label="&quickDownloadBackgroundImageLabel;" 
+            label="&quickdownloadBackgroundImageLabel;" 
             key="quickDownloadBackgroundImageKey"
-            oncommand=" TODO "/>
+            oncommand="Quickdownload.downloadBackgroundImage()"/>
     </popup>
     
     <!-- Key shortcuts -->
