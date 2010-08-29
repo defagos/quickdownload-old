@@ -1,10 +1,10 @@
-# Map chrome://quickdownload/content/ to the chrome/content xpi directory
+# Map chrome://quickdownload/content/ to the chrome/content/ xpi directory
 content quickdownload chrome/content/
 
 # Register chrome overlay for modifying main browser window
 overlay chrome://browser/content/browser.xul chrome://quickdownload/content/browser.xul
 
-# Locale providers
-locale quickdownload en-US locale/en-US/
+# Map chrome://quickdownload/locale to the chrome/locale/<language code>/ xpi directory
+locale quickdownload en-US chrome/locale/en-US/
 
 # Remark: This extension does not use skinning
