@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://quickdownload/locale/translations.dtd">
+<overlay id="quickdownloadOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- Add right-click menu entry for quickly downloading files -->
+    <popup id="contentAreaContextMenu"> 
+        <menuitem id="quickdownloadFileMenuItem" 
+            label="&quickDownloadFileLabel;"
+            key="quickdownloadFileKey"
+            oncommand=" TODO "/>
+    </popup>
+    <!-- Add right-click menu entry for quickly downloading images -->
+    <popup id="contentAreaContextMenu"> 
+        <menuitem id="quickdownloadImageMenuItem"
+            label="&quickDownloadImageLabel;" 
+            key="quickDownloadImageKey"
+            oncommand=" TODO "/>
+    </popup>
+    <!-- Add right-click menu entry for quickly downloading background images -->
+    <popup id="contentAreaContextMenu"> 
+        <menuitem id="quickdownloadBackgroundImageMenuItem" 
+            label="&quickDownloadBackgroundImageLabel;" 
+            key="quickDownloadBackgroundImageKey"
+            oncommand=" TODO "/>
+    </popup>
+    
+    <!-- Key shortcuts -->
+    <keyset>
+        <key id="quickdownloadFileKey" key="&quickdownloadFileKey;"/>
+        <key id="quickdownloadImageKey" key="&quickdownloadImageKey;"/>
+        <key id="quickdownloadBackgroundImageKey" key="&quickdownloadBackgroundImageKey;"/>
+    </keyset>
+</overlay>
