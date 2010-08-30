@@ -1,5 +1,5 @@
 var Quickdownload = {
-    onLoad: function() {
+    init: function() {
         alert("Init");
     },
 
@@ -16,4 +16,5 @@ var Quickdownload = {
     }
 };
 
-window.addEventListener("load", function(e) { Quickdownload.onLoad(e); }, false);
+// Ensure that the initialization code is called when the window has been loaded
+window.addEventListener("load", function() { Quickdownload.init(); }, false);
