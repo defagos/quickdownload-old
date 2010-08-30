@@ -17,4 +17,4 @@ var Quickdownload = {
 };
 
 // Ensure that the initialization code is called when the window has been loaded
-window.addEventListener("load", function() { Quickdownload.init(); }, false);
+window.addEventListener("load", function(event) { Quickdownload.init(); }, false);
