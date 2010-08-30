@@ -1,5 +1,5 @@
 var Quickdownload = {
-    init: function() {
+    onLoad: function() {
         alert("Init");
     },
 
@@ -11,7 +11,9 @@ var Quickdownload = {
         alert("Download image");
     },
     
-    downloadBackgroundImage() {
+    downloadBackgroundImage: function() {
         alert("Download background Image");
     }
 };
+
+window.addEventListener("load", function(e) { Quickdownload.onLoad(e); }, false);

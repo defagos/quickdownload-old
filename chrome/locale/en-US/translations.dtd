@@ -1,6 +1,6 @@
 <!ENTITY quickdownloadFileLabel "Quickdownload file">
-<!ENTITY quickdownloadFileKey "Q">
+<!ENTITY quickdownloadFileAccessKey "Q">
 <!ENTITY quickdownloadImageLabel "Quickdownload image">
-<!ENTITY quickdownloadImageKey "1">
+<!ENTITY quickdownloadImageAccessKey "1">
 <!ENTITY quickdownloadBackgroundImageLabel "Quickdownload background image">
-<!ENTITY quickdownloadBackgroundImageKey "2">
+<!ENTITY quickdownloadBackgroundImageAccessKey "2">

@@ -7,29 +7,22 @@
     <!-- Add right-click menu entry for quickly downloading files -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadFileMenuItem" 
-            label="&quickownloadFileLabel;"
-            key="quickdownloadFileKey"
+            label="&quickdownloadFileLabel;"
+            accesskey="&quickdownloadFileAccessKey;"
             oncommand="Quickdownload.downloadFile()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadImageMenuItem"
             label="&quickdownloadImageLabel;" 
-            key="quickDownloadImageKey"
+            accesskey="&quickdownloadImageAccessKey;"
             oncommand="Quickdownload.downloadImage()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading background images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadBackgroundImageMenuItem" 
             label="&quickdownloadBackgroundImageLabel;" 
-            key="quickDownloadBackgroundImageKey"
+            accesskey="&quickdownloadBackgroundImageAccessKey;"
             oncommand="Quickdownload.downloadBackgroundImage()"/>
     </popup>
-    
-    <!-- Key shortcuts -->
-    <keyset>
-        <key id="quickdownloadFileKey" key="&quickdownloadFileKey;"/>
-        <key id="quickdownloadImageKey" key="&quickdownloadImageKey;"/>
-        <key id="quickdownloadBackgroundImageKey" key="&quickdownloadBackgroundImageKey;"/>
-    </keyset>
 </overlay>
