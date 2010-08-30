@@ -1,6 +1,15 @@
+// TODO: - Even faster shortcuts (just put cursor on a link and use shortcut, no need for a right-click even if the menu
+//         items will still be available)
+//       - Drag an area and download all links within it (quickdownload file, image, all). Can also imagine having several
+//         options after having dragged the aread, e.g. an option for checking / unchecking files before downloading, or for
+//         using filters (only .pdf, only .doc, only .mp3, only .jpg, etc.)
+//       - Notify that a download starts using a small rectangle appearing briefly next to the mouse cursor
+
 var Quickdownload = {
     init: function() {
-        alert("Init");
+        // Listen to pop-up events for the right-click menu
+        var menu = document.getElementById("contentAreaContextMenu");
+        menu.addEventListener("popupshowing", Quickdownload.hideShowQuickdownloadMenuItems, false);
     },
 
     downloadFile: function() {
@@ -13,8 +22,22 @@ var Quickdownload = {
     
     downloadBackgroundImage: function() {
         alert("Download background Image");
+    },
+    
+    hideShowQuickdownloadMenuItems: function() {
+        // Quickdownload menu item
+        var quickdownloadFileMenuItem = document.getElementById("quickdownloadFileMenuItem");
+        quickdownloadFileMenuItem.hidden = ! gContextMenu.onSaveableLink; 
+        
+        // Quickdownload Image menu item
+        var quickdownloadImageMenuItem = document.getElementById("quickdownloadImageMenuItem");
+        quickdownloadImageMenuItem.hidden = ! gContextMenu.onImage;
+        
+        // Quickdownload background image menu item
+        var quickdownloadBackgroundImageMenuItem = document.getElementById("quickdownloadBackgroundImageMenuItem");
+        quickdownloadBackgroundImageMenuItem.hidden = ! gContextMenu.hasBGImage;
     }
 };
 
-// Ensure that the initialization code is called when the window has been loaded
+// Call initialization (implicit) function callback when the overlay is loaded
 window.addEventListener("load", function(event) { Quickdownload.init(); }, false);
