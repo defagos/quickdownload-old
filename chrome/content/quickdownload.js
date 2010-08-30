@@ -25,17 +25,10 @@ var Quickdownload = {
     },
     
     hideShowQuickdownloadMenuItems: function() {
-        // Quickdownload menu item
-        var quickdownloadFileMenuItem = document.getElementById("quickdownloadFileMenuItem");
-        quickdownloadFileMenuItem.hidden = ! gContextMenu.onSaveableLink; 
-        
-        // Quickdownload Image menu item
-        var quickdownloadImageMenuItem = document.getElementById("quickdownloadImageMenuItem");
-        quickdownloadImageMenuItem.hidden = ! gContextMenu.onImage;
-        
-        // Quickdownload background image menu item
-        var quickdownloadBackgroundImageMenuItem = document.getElementById("quickdownloadBackgroundImageMenuItem");
-        quickdownloadBackgroundImageMenuItem.hidden = ! gContextMenu.hasBGImage;
+        // Show menu items depending on the link target
+        gContextMenu.showItem("quickdownloadFileMenuItem", gContextMenu.onSaveableLink);
+        gContextMenu.showItem("quickdownloadImageMenuItem", gContextMenu.onImage);
+        gContextMenu.showItem("quickdownloadBackgroundImageMenuItem", gContextMenu.hasBGImage);
     }
 };
 
