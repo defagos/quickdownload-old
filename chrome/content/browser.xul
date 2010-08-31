@@ -9,20 +9,20 @@
         <menuitem id="quickdownloadFileMenuItem" 
             label="&quickdownloadFileLabel;"
             accesskey="&quickdownloadFileAccessKey;"
-            oncommand="Quickdownload.downloadFile()"/>
+            oncommand="QuickdownloadContextMenu.downloadFile()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadImageMenuItem"
             label="&quickdownloadImageLabel;" 
             accesskey="&quickdownloadImageAccessKey;"
-            oncommand="Quickdownload.downloadImage()"/>
+            oncommand="QuickdownloadContextMenu.downloadImage()"/>
     </popup>
     <!-- Add right-click menu entry for quickly downloading background images -->
     <popup id="contentAreaContextMenu"> 
         <menuitem id="quickdownloadBackgroundImageMenuItem" 
             label="&quickdownloadBackgroundImageLabel;" 
             accesskey="&quickdownloadBackgroundImageAccessKey;"
-            oncommand="Quickdownload.downloadBackgroundImage()"/>
+            oncommand="QuickdownloadContextMenu.downloadBackgroundImage()"/>
     </popup>
 </overlay>

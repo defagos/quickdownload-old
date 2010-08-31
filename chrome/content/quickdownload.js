@@ -6,25 +6,34 @@
 //       - Notify that a download starts using a small rectangle appearing briefly next to the mouse cursor
 
 var Quickdownload = {
+    downloadLink: function(link, saveDir) {
+        alert(link + " " + saveDir);
+    }
+};
+
+var QuickdownloadContextMenu = {
     init: function() {
         // Listen to pop-up events for the right-click menu
         var menu = document.getElementById("contentAreaContextMenu");
-        menu.addEventListener("popupshowing", Quickdownload.hideShowQuickdownloadMenuItems, false);
+        menu.addEventListener("popupshowing", QuickdownloadContextMenu.onPopupShowing, false);
     },
 
     downloadFile: function() {
-        alert("Download file");
+        var link = gContextMenu.linkURL;
+        Quickdownload.downloadLink(link, "filedir");
     },
     
     downloadImage: function() {
-        alert("Download image");
+        var link = gContextMenu.imageURL;
+        Quickdownload.downloadLink(link, "imgdir");
     },
     
     downloadBackgroundImage: function() {
-        alert("Download background Image");
+        var link = gContextMenu.bgImageURL;
+        Quickdownload.downloadLink(link, "bgimgdir");
     },
     
-    hideShowQuickdownloadMenuItems: function() {
+    onPopupShowing: function() {
         // Show menu items depending on the link target
         gContextMenu.showItem("quickdownloadFileMenuItem", gContextMenu.onSaveableLink);
         gContextMenu.showItem("quickdownloadImageMenuItem", gContextMenu.onImage);
@@ -33,4 +42,4 @@ var Quickdownload = {
 };
 
 // Call initialization (implicit) function callback when the overlay is loaded
-window.addEventListener("load", function(event) { Quickdownload.init(); }, false);
+window.addEventListener("load", function(event) { QuickdownloadContextMenu.init(); }, false);
