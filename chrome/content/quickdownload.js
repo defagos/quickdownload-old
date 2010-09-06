@@ -12,24 +12,38 @@
 
 // Singleton class created via JSON, collecting download functionality
 var Quickdownload = {
-    fileDir: "fileDirValue",
-    imageDir: "imageDirValue",
-    bgImageDir: "bgImageDirValue",
+    fileDir: null,
+    imageDir: null,
+    bgImageDir: null,
+    
+    init: function() {
+        this.readDirectories();
+    },
     
     downloadFile: function(url) {
-        Quickdownload.downloadURL(url, Quickdownload.fileDir);
+        this.downloadURL(url, this.fileDir);
     },
     
     downloadImage: function(url) {
-        Quickdownload.downloadURL(url, Quickdownload.imageDir);
+        this.downloadURL(url, this.imageDir);
     },
     
     downloadBgImage: function(url) {
-        Quickdownload.downloadURL(url, Quickdownload.bgImageDir);
+        this.downloadURL(url, this.bgImageDir);
     },
     
     downloadURL: function(url, saveDir) {
         alert(url + " " + saveDir);
+    },
+    
+    readDirectories : function() {
+        // Preferences service
+        var preferencesService = Components.classes["@mozilla.org/preferences-service;1"]
+            .getService(Components.interfaces.nsIPrefService);
+    
+        this.fileDir = "fileDirPath";
+        this.imageDir = "imageDirPath";
+        this.bgImageDir = "bgImageDir";
     }
 };
 
@@ -64,5 +78,6 @@ var QuickdownloadContextMenu = {
     }
 };
 
-// Call initialization (implicit) function callback when the overlay is loaded
+// Call initialization (implicit) function callback for initialization when the overlay is loaded
+window.addEventListener("load", function(event) { Quickdownload.init(); }, false);
 window.addEventListener("load", function(event) { QuickdownloadContextMenu.init(); }, false);
