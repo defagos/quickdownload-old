@@ -5,12 +5,35 @@
 //         using filters (only .pdf, only .doc, only .mp3, only .jpg, etc.)
 //       - Notify that a download starts using a small rectangle appearing briefly next to the mouse cursor
 
+// TODO: Install preferences monitor Object (https://developer.mozilla.org/en/adding_preferences_to_an_extension),
+//       calling refreshSettings method which cache the paths to the various directories. This method is also called
+//       on initialization, This way, we only check prefs when starting or when they are changed. Each time a download
+//       is started, the cached values are used.
+
+// Singleton class created via JSON, collecting download functionality
 var Quickdownload = {
-    downloadLink: function(link, saveDir) {
-        alert(link + " " + saveDir);
+    fileDir: "fileDirValue",
+    imageDir: "imageDirValue",
+    bgImageDir: "bgImageDirValue",
+    
+    downloadFile: function(url) {
+        Quickdownload.downloadURL(url, Quickdownload.fileDir);
+    },
+    
+    downloadImage: function(url) {
+        Quickdownload.downloadURL(url, Quickdownload.imageDir);
+    },
+    
+    downloadBgImage: function(url) {
+        Quickdownload.downloadURL(url, Quickdownload.bgImageDir);
+    },
+    
+    downloadURL: function(url, saveDir) {
+        alert(url + " " + saveDir);
     }
 };
 
+// Singleton class created via JSON, collecting context menu functionality
 var QuickdownloadContextMenu = {
     init: function() {
         // Listen to pop-up events for the right-click menu
@@ -19,18 +42,18 @@ var QuickdownloadContextMenu = {
     },
 
     downloadFile: function() {
-        var link = gContextMenu.linkURL;
-        Quickdownload.downloadLink(link, "filedir");
+        var url = gContextMenu.linkURL;
+        Quickdownload.downloadFile(url);
     },
     
     downloadImage: function() {
-        var link = gContextMenu.imageURL;
-        Quickdownload.downloadLink(link, "imgdir");
+        var url = gContextMenu.imageURL;
+        Quickdownload.downloadImage(url);
     },
     
     downloadBackgroundImage: function() {
-        var link = gContextMenu.bgImageURL;
-        Quickdownload.downloadLink(link, "bgimgdir");
+        var url = gContextMenu.bgImageURL;
+        Quickdownload.downloadBgImage(url);
     },
     
     onPopupShowing: function() {
